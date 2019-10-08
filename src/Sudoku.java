@@ -6,16 +6,17 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 
 public class Sudoku {
-	int m;
-	private static String inputFileName;
-	private static String outputFileName;
-	static int[][] matrix = new int[10][10];
-    //boolean find;
-    public Sudoku(int m) {
-        this.m = m;
-    }
+  int m;
+  private static String inputFileName;
+  private static String outputFileName;
+  static int[][] matrix = new int[10][10];
+  //boolean find;
 
-    public void outputs() {  	
+  public Sudoku(int m) {
+    this.m = m;
+  }
+  
+  public void outputs() {
     	try {
 			/* 写入TXT文件 */  
             File writename = new File(outputFileName); // 相对路径，如果没有则要建立一个新的output。txt文件  
@@ -43,11 +44,9 @@ public class Sudoku {
                 System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
-        }
+        }  
         System.out.println();
-    }
-
-        
+    }   
     /**
      * 数独算法
      *
@@ -58,7 +57,7 @@ public class Sudoku {
     	
         if (i == m-1 && j == m) {
             System.out.println("获取正确解");            
-            outputs();;
+            outputs();
             return;            
         }
         //已经到了列末尾了，还没到行尾，就换行
@@ -159,10 +158,11 @@ public class Sudoku {
         System.out.println();
     }*/
  
-    public static void main(String[] args) {  	
-    	int m = 6,n = 2;//宫格、盘面   
-    	//String inputFileName = null;
-	    //String outputFileName = null;
+    public static void main(String[] args) { 
+    
+    	int m = 0,n = 0;//宫格、盘面   
+    	String inputFileName = "input9.txt";
+	    String outputFileName = "output9.txt";
     	if(args.length>0 && args!=null ) {
     		for(int i=0; i<args.length; i++) {
     			switch(args[i]) {
@@ -211,7 +211,7 @@ public class Sudoku {
     	            	
     	            	 if(i==m){
     	                     if(n!=0){
-    	                         Sudoku s = new Sudoku(6);
+    	                         Sudoku s = new Sudoku(m);
     	                         s.backTrace(0, 0);
     	                         n--;
     	                         i=0;j=0;
